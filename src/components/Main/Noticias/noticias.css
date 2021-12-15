@@ -1,0 +1,99 @@
+.row-noticias{
+    display: flex;
+    align-items: flex-start;
+}
+
+.noticias-container{
+    width: 70%;
+    margin: 150px auto;
+}
+.noticias{
+    background-color: rgb(216, 216, 216);
+}
+
+.noticias h3{
+    font-weight: 700;
+    margin: 30px 0px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fff;
+    font-size: 30px;
+}
+
+
+.card-deck{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.card-deck .card{
+    margin: 20px 0px;
+}
+
+.card-deck .card:hover{
+    transition: .2s;
+    -webkit-box-shadow: 0px 0px 15px 3px rgb(172, 172, 172);
+    -moz-caja-sombra: 0px 0px 15px 3px rgb(172, 172, 172);
+}
+
+.card-deck .card img:hover{
+    width: 100%;
+    cursor: pointer;
+}
+
+.card-deck .card .card-body{
+    height: auto;
+}
+
+
+.card-deck .card .card-body button{
+    color: tomato;
+    padding: 0px;
+    margin: 5px 0px;
+    font-size: 18px;
+}
+
+.card-deck .card .card-body button:hover{
+    text-decoration: underline;
+}
+
+.card-deck .card .card-body h5{
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.card-deck .card .card-body h6{
+    text-transform: uppercase;
+    color: tomato;
+}
+
+.card-deck .card .card-body .description{
+    margin-top: 10px;
+    font-weight: 400;
+    color: rgb(32, 32, 32);
+    text-align: start;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    .noticias-container{
+        width: 80%;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .noticias-container{
+        width: 90%;
+    }
+
+    .noticias h3{
+        font-size: 23px;
+    }
+  }

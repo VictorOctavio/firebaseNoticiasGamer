@@ -1,0 +1,135 @@
+.row-img{
+    width: 100%;
+    padding-top: 75px;
+    padding-bottom: 10px;
+    background-color: rgb(211, 211, 211);  
+}
+
+.row-img .noticia-img{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.row-img .noticia-img img{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.noticia-container{
+    width: 75%;
+    margin: 0 auto;  
+}
+
+
+.noticia-container .titles{
+    margin-top: 80px;
+}
+
+.noticia-container .titles h2{
+    font-weight: 700;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: rgb(165, 46, 26);
+}
+
+.noticia-container .titles h6{
+    font-size: 20px;
+    color: rgb(102, 102, 102);
+}
+
+.noticia-container .noticia-info{
+    margin-top: 20px;
+}
+
+.noticia-container .noticia-info .description{
+    margin-top: 40px;
+}
+
+.noticia-container .noticia-info .texto{
+    margin-top: 20px;
+}
+
+.noticia-container .noticia-info h5{
+    font-size: 22px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: rgb(182, 56, 34);
+}
+
+.noticia-container .noticia-info p{
+    margin-bottom: 0px;
+    font-size: 20px;
+    color: rgb(56, 56, 56);
+    text-align: justify;
+    font-weight: 400;
+}
+
+
+.noticia-container .tabla{
+    margin-top: 200px;
+}
+
+.noticia-container .tabla table{
+    border: 1px solid rgb(168, 168, 168);
+}
+
+.noticia-container .tabla h2{
+    text-align: center;
+    font-weight: 700;
+    font-size: 25px;
+    color: rgb(121, 120, 120);
+}
+
+
+
+
+/*RECOMENDADO*/
+.recomendado{
+    margin: 200px 0px;
+}
+
+.recomendado h3{
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+.recomendado-list{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.recomendado-list .card-body h5{
+    text-transform: uppercase;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .row-img .noticia-img{
+        width: 100%;
+    }
+
+    .noticia-container{
+        width: 90%;
+    }
+}
+
+
+@media only screen and (max-width: 370px) {
+
+    .row-img .noticia-img{
+        width: 100%;
+    }
+
+    .noticia-container{
+        width: 100%;
+    }
+}

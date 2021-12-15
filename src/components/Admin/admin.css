@@ -1,0 +1,96 @@
+.admin-container{
+    width: 100%;
+    margin-top: 64px;
+}
+
+.admin-container .navbar .navbar-nav{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.admin-container .navbar .navbar-nav button{  
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.admin-container .navbar .navbar-nav a:hover{  
+    color: rgb(211, 250, 238);
+}
+
+.secciones{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.secciones .section-portada h3{
+    font-weight: 700;
+    color: rgb(119, 119, 119);
+    text-align: center;
+}
+
+.secciones .section-portada form{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.secciones .section-portada .imagenes{
+    width: 60%;
+    margin: 50px auto;
+}
+
+.secciones .section-portada .imagenes .carousel-primario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.secciones .section-portada .imagenes .carousel-primario .btns{
+    display: flex;
+    flex-direction: column;
+}
+
+.secciones .section-portada .carousel-secundario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
+
+
+.listaNoticias{
+    width: 50%;
+    margin: 100px auto;
+}
+
+.listaNoticias h3{
+    font-weight: 700;
+    color: rgb(117, 117, 117);
+}
+
+.listaNoticias li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listaNoticias li .info{
+    display: flex;
+    align-items: center;
+}
+.listaNoticias li .info h6{
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    padding: 0 5px;
+}
+
+
+.requisitos-container{
+    margin-top: 50px;
+}
+
+.requisitos{
+    display: flex;
+}
