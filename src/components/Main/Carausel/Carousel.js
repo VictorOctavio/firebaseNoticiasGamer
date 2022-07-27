@@ -3,7 +3,7 @@ import './carousel.css'
 
 //REDUX
 import {useDispatch, useSelector} from 'react-redux'
-import {getPortadaAction, getNoticiaAction} from '../../../redux/DataDuck'
+import {getPortadaAction} from '../../../redux/DataDuck'
 
 const carouselActive = 'https://firebasestorage.googleapis.com/v0/b/gamingpage.appspot.com/o/carousel%2Ffifa21.jpg?alt=media&token=0ca4f73a-5cdc-4d4d-9b1a-529db8e7914f'
 
@@ -19,7 +19,7 @@ const Carousel = () => {
     const portada = useSelector(store => store.data.portada)
 
     const handleNoticia = (item) => {
-        dispatch(getNoticiaAction(item))
+        window.location.href = (`/noticia/${item.id}`)
     }
 
     return (    
@@ -55,7 +55,7 @@ const Carousel = () => {
                         {
                             portada.map(item => (
                                 <div className="carousel-item" key={item.id}>
-                                    <img src={item.photoURL} className="d-block w-100" alt="img-carousel"/>
+                                    <img src={item.photoURL} className="d-block w-100" style={{objectFit: 'cover'}} alt="img-carousel"/>
                                 </div>
                             ))
                         }

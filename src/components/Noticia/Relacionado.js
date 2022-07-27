@@ -1,17 +1,10 @@
 import React from 'react'
 import './noticia.css'
 
-import {useDispatch} from 'react-redux'
-import {getNoticiaAction} from '../../redux/DataDuck'
-
-const Relacionado = ({categoria, id}) => {
-
-    const dispatch = useDispatch()
-
-    const recomendado = JSON.parse(localStorage.getItem('noticias'))
+const Relacionado = ({id, relacionado}) => {
 
     const handleNoticia = (item) => {
-        dispatch(getNoticiaAction(item))
+        window.location.href = (`/noticia/${item.id}`)
     }
 
     return (
@@ -22,8 +15,8 @@ const Relacionado = ({categoria, id}) => {
 
             <div className="col-md-12 recomendado-list">
                 {
-                recomendado.map(item => (
-                    item.category === categoria && item.id !== id ? ( 
+                relacionado.map(item => (
+                    item.id !== id ? ( 
                         <div className="card col-12 col-md-6 col-lg-4" key={item.id}>
                             <img className="card-img-top" src={item.photoURL} alt="recomendado" />
                             <div className="card-body">

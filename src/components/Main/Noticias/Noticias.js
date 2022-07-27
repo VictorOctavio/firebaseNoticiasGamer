@@ -3,7 +3,7 @@ import './noticias.css'
 
 //REDUX
 import {useSelector, useDispatch} from 'react-redux'
-import {getNoticiaAction, getDestacadosAction, nextPageAction} from '../../../redux/DataDuck'
+import {getDestacadosAction, nextPageAction} from '../../../redux/DataDuck'
 
 //MOMENT
 import moment from 'moment'
@@ -23,7 +23,7 @@ const Noticias = () => {
 
 
     const handleNoticia = (item) => {
-        dispatch(getNoticiaAction(item))
+        window.location.href = (`/noticia/${item.id}`)
     }
 
     React.useEffect(() => {
@@ -58,7 +58,7 @@ const Noticias = () => {
                         destacados.map(item => (
                         <div className="col-sm-12 col-lg-6" key={item.id}>
                             <div className="card">
-                                <img className="card-img-top" src={item.photoURL} alt="Card image cap" onClick={() => handleNoticia(item)}/>
+                                <img className="card-img-top" src={item.photoURL} alt={item.title} onClick={() => handleNoticia(item)}/>
                                 <div className="card-body">
                                     <h5 className="card-title mb-2">{item.title}</h5>
                                     <h6 className="card-subtitle">{item.category}</h6>

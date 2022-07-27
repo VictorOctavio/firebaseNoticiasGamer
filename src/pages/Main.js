@@ -17,6 +17,7 @@ const Main = () => {
     }, [dispatch])
     return (
         <div className="main">
+    
             <Carousel/>
 
             <Noticias/>

@@ -1,10 +1,6 @@
 import React from 'react'
 import './allNoticias.css'
 
-//REDUX
-import {useDispatch, useSelector} from 'react-redux'
-import {getNoticiaAction} from '../../redux/DataDuck'
-
 //MOMENT
 import moment from 'moment'
 import 'moment/locale/es' // Pasar a español
@@ -13,7 +9,6 @@ const carouselActive = 'https://firebasestorage.googleapis.com/v0/b/gamingpage.a
 
 const AllNoticias = () => {
 
-    const dispatch = useDispatch()
 
     const noticias = JSON.parse(localStorage.getItem('noticias'))
 
@@ -23,7 +18,7 @@ const AllNoticias = () => {
 
 
     const handleNoticia = (item) => {
-        dispatch(getNoticiaAction(item))
+        window.location.href = (`/noticia/${item.id}`)
     }
 
     return (
@@ -70,7 +65,7 @@ const AllNoticias = () => {
                         item.category === categoriaActual || item.plataforma === plataformaActual || item.title === Search ? (
                         <div className="col-sm-12 col-md-6 col-lg-4" key={item.id}>
                             <div className="card">
-                                <img className="card-img-top" src={item.photoURL} alt="Card image cap" onClick={() => handleNoticia(item)}/>
+                                <img className="card-img-top" src={item.photoURL} alt={item.title} onClick={() => handleNoticia(item)}/>
                                 <div className="card-body">
                                     <h5 className="card-title mb-2">{item.title}</h5>
                                     <h6 className="card-subtitle">{item.category}</h6>

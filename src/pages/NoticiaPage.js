@@ -6,7 +6,7 @@ import Footer from '../components/Footer/Footer'
 
 const NoticiaPage = () => {
     return (
-        <div>
+        <div style={{minHeight: '100vh'}}>
             <Noticia/>
 
             <Footer/>

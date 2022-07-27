@@ -6,6 +6,8 @@ const dataInicial = {
     noticias: [],
     destacados: [],
     portada: [],
+    noticia: null,
+    relacionado: null
 }
 
 
@@ -13,7 +15,7 @@ const dataInicial = {
 const GET_NOTICIAS = 'GET_NOTICIAS'
 const GET_NOTICIAS_DESTACADAS = 'GET_NOTICIAS_DESTACADAS'
 const GET_NOTICIAS_PORTADA = 'GET_NOTICIAS_PORTADA'
-
+const GET_NOTICIA = 'GET_NOTICIA'
 
 
 //REDUCER
@@ -27,6 +29,9 @@ export default function dataReducer(state = dataInicial, action){
 
         case GET_NOTICIAS_PORTADA:
             return {...state, portada: action.payload}
+
+        case GET_NOTICIA:
+            return {...state, noticia: action.payload.juego, relacionado: action.payload.relacionado}
 
         default:
             return state
@@ -49,13 +54,13 @@ export const getNoticiasAction = () => async(dispatch) => {
                 payload: JSON.parse(localStorage.getItem('noticias'))
             })
         }
-
+        
         const data = await db.collection('noticias')
         .orderBy('fecha', "desc")
         .get()
-        
+
         const arrayData = data.docs.map(doc => ({id: doc.id, ...doc.data()}))
-        
+
         localStorage.setItem('noticias', JSON.stringify(arrayData))
 
         dispatch({
@@ -67,10 +72,6 @@ export const getNoticiasAction = () => async(dispatch) => {
         console.log(err)
     }
 }    
-
-
-
-
 
 
 
@@ -106,7 +107,7 @@ export const getDestacadosAction = (setUltimo) => async(dispatch) => {
 
 
 
-    //OBTENER PORTADA
+//OBTENER PORTADA
 export const getPortadaAction = () => async(dispatch) => {
     try{
         
@@ -126,7 +127,7 @@ export const getPortadaAction = () => async(dispatch) => {
         const arrayData = data.docs.map(doc => ({id: doc.id, ...doc.data()}))
         
         localStorage.setItem('portada', JSON.stringify(arrayData))
-
+        
         dispatch({
             type: GET_NOTICIAS_PORTADA,
             payload: arrayData
@@ -137,38 +138,33 @@ export const getPortadaAction = () => async(dispatch) => {
     }
 }
 
+//OBTENER NOTICIA
+export const getNoticia2Action = (data) => async(dispatch) => {
+    
+    try{
+       
+        const id = window.location.pathname.split('/')[2]
+        const data = await db.collection('noticias').where('id', '==', id).get()
+        const arrayData = data.docs.map(doc => ({id: doc.id, ...doc.data()}))
 
+        const dataRelacionados = await db.collection('noticias').where('category', '==', arrayData[0].category).get()
+        const arrayDataRelacionados = dataRelacionados.docs.map(doc => ({id: doc.id, ...doc.data()}))
+        
 
+        dispatch({
+            type: GET_NOTICIA,
+            payload: {juego: arrayData[0], relacionado: arrayDataRelacionados}
+        })
 
-
-    //OBTENER NOTICIA
-export const getNoticiaAction = (data) => () => {
-
-    const noticia = {
-        id: data.id,
-        title: data.title,
-        subtitle: data.subtitle,
-        description: data.description,
-        category: data.category,
-        plataforma: data.plataforma,
-        photoURL: data.photoURL,
-        info: data.info,
-        minimos: data.minimos,
-        recomendados: data.recomendados
+    }catch(err){
+        console.log(err)
     }
-
-    localStorage.setItem('noticia', JSON.stringify(noticia))
-
-    window.location.href = (`/noticia/${data.title}`)
 
 }
 
 
 
-
-
-
-    //NEXT PAGE USER
+//NEXT PAGE USER
 export const nextPageAction = (ultimo, setUltimo, setDesactivar) => async(dispatch) => {
 
     try{
@@ -208,7 +204,7 @@ export const nextPageAction = (ultimo, setUltimo, setDesactivar) => async(dispat
 
 
 
-    //SUBSCRIPTCION USER
+//SUBSCRIPTCION USER
 export const subAction = (email, setSub) => async(dispatch) => {
     try{
 
